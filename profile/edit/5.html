@@ -1,0 +1,451 @@
+<!doctype html>
+<!-- 
+* Smart Timesheet Preview 
+* Email: official.smarttimesheet@gmail.com
+* Version: 3.0
+* License: The MIT License
+* Author: Brian Luna
+* Copyright 2018 Brian Luna
+* Website: https://github.com/brianluna/smarttimesheet
+-->
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Smart Timesheet</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/vendor/bootstrap/css/bootstrap.min.v4.1.3.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/vendor/semantic-ui/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="../../assets/js/html5shiv.js></script>
+            <script src="../../assets/js/respond.min.js"></script>
+        <![endif]-->
+
+    <!-- @yield('styles') -->
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <nav id="sidebar" class="active">
+            <div class="sidebar-header bg-lightblue">
+                <div class="logo">
+                    <a href="" class="simple-text">
+                        <img src="../../assets/images/img/logo-small.png">
+                    </a>
+                </div>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="">
+                    <a href="../../dashboard.html">
+                        <i class="ui icon sliders horizontal"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="../../employees.html">
+                        <i class="ui icon users"></i>
+                        <p>Employees</p>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="../../attendance.html">
+                        <i class="ui icon clock outline"></i>
+                        <p>Attendance</p>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="../../schedules.html">
+                        <i class="ui icon calendar alternate outline"></i>
+                        <p>Schedules</p>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="../../leaves.html">
+                        <i class="ui icon calendar plus outline"></i>
+                        <p>Leaves</p>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="../../reports.html">
+                        <i class="ui icon chart bar outline"></i>
+                        <p>Reports</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="../../users.html">
+                        <i class="ui icon user circle outline"></i>
+                        <p>Users</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="../../settings.html">
+                        <i class="ui icon cog"></i>
+                        <p>Settings</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="body" class="active">
+            <nav class="navbar navbar-expand-lg navbar-light bg-lightblue">
+                <div class="container-fluid">
+
+                    <button type="button" id="slidesidebar" class="ui icon button btn-light-outline">
+                        <i class="ui icon bars"></i> Menu
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto navmenu">
+                            <li class="nav-item">
+                                <div class="ui pointing link dropdown item" tabindex="0">
+                                    <i class="ui icon th"></i> Quick Access
+                                    <i class="dropdown icon"></i>
+                                    <div class="menu" tabindex="-1">
+                                        <a href="../../employees-new.html" class="item">
+                                            <i class="ui icon user plus"></i> Add Employee</a>
+                                        <a href="../../clock.html" target="_blank" class="item">
+                                            <i class="ui icon clock outline"></i> Clock In/Out</a>
+                                        <div class="divider"></div>
+                                        <a href="../../fields/company.html" class="item">
+                                            <i class="ui icon university"></i> Company</a>
+                                        <a href="../../fields/department.html" class="item">
+                                            <i class="ui icon cubes"></i> Department</a>
+                                        <a href="../../fields/jobtitle.html" class="item">
+                                            <i class="ui icon pencil alternate"></i> Job Title</a>
+                                        <a href="../../fields/leavetype.html" class="item">
+                                            <i class="ui icon calendar alternate outline"></i> Leave Type</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="ui pointing link dropdown item" tabindex="0">
+                                    <i class="ui icon user outline"></i>Demo Manager
+                                    <i class="dropdown icon"></i>
+                                    <div class="menu" tabindex="-1">
+                                        <a href="../../update-user.html" class="item">
+                                            <i class="ui icon user"></i> Update User</a>
+                                        <a href="../../change-password.html" class="item">
+                                            <i class="ui icon lock"></i> Change Password</a>
+                                        <a href="../../personal/dashboard.html" target="_blank" class="item">
+                                            <i class="ui icon sign-in"></i> Switch to MyAccount</a>
+                                        <div class="divider"></div>
+                                        <a href="../../login.html" class="item">
+                                            <i class="ui icon power"></i> Logout</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="content">
+
+                <!-- @yield('content') -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="page-title">Edit Employee Profile
+                                <a href="../../employees.html" class="ui basic blue button mini offsettop5 float-right">
+                                    <i class="ui icon chevron left"></i>Return</a>
+                            </h2>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <form action="/" class="ui form custom" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+
+                            <div class="col-md-6 float-left">
+                                <div class="box box-success">
+                                    <div class="box-header with-border">Personal Infomation</div>
+                                    <div class="box-body">
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>First Name</label>
+                                                <input type="text" class="uppercase notempty" name="firstname" value=" MIA " required="">
+                                            </div>
+                                            <div class="field">
+                                                <label>Middle Name</label>
+                                                <input type="text" class="uppercase notempty" name="mi" value="  ">
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label>Last Name</label>
+                                            <input type="text" class="uppercase notempty" name="lastname" value=" BROWN " required="">
+                                        </div>
+                                        <div class="field">
+                                            <label>Gender</label>
+                                            <div class="ui dropdown uppercase selection notempty" tabindex="0">
+                                                <select name="gender">
+                                                    <option value="">Select Gender</option>
+                                                    <option value="MALE">MALE</option>
+                                                    <option value="FEMALE" selected="">FEMALE</option>
+                                                </select>
+                                                <i class="dropdown icon"></i>
+                                                <div class="text">FEMALE</div>
+                                                <div class="menu" tabindex="-1">
+                                                    <div class="item" data-value="MALE">MALE</div>
+                                                    <div class="item active selected" data-value="FEMALE">FEMALE</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label>Civil Status</label>
+                                            <div class="ui dropdown uppercase selection notempty" tabindex="0">
+                                                <select name="civilstatus">
+                                                    <option value="">Select Civil Status</option>
+                                                    <option value="SINGLE">SINGLE</option>
+                                                    <option value="MARRIED" selected="">MARRIED</option>
+                                                    <option value="ANULLED">ANULLED</option>
+                                                    <option value="WIDOWED">WIDOWED</option>
+                                                    <option value="LEGALLY SEPARATED">LEGALLY SEPARATED</option>
+                                                </select>
+                                                <i class="dropdown icon"></i>
+                                                <div class="text">MARRIED</div>
+                                                <div class="menu" tabindex="-1">
+                                                    <div class="item" data-value="SINGLE">SINGLE</div>
+                                                    <div class="item active selected" data-value="MARRIED">MARRIED</div>
+                                                    <div class="item" data-value="ANULLED">ANULLED</div>
+                                                    <div class="item" data-value="WIDOWED">WIDOWED</div>
+                                                    <div class="item" data-value="LEGALLY SEPARATED">LEGALLY SEPARATED</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Height
+                                                    <span class="help">(cm)</span>
+                                                </label>
+                                                <input type="text" name="height" value="  " placeholder="000" class="notempty">
+                                            </div>
+                                            <div class="field">
+                                                <label>Weight
+                                                    <span class="help">(pounds)</span>
+                                                </label>
+                                                <input type="text" name="weight" value="  " placeholder="000" class="notempty">
+                                            </div>
+                                        </div>
+
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Email Address (Personal)</label>
+                                                <input type="email" name="emailaddress" value=" brownmia@gmail.com " required="" class="lowercase notempty">
+                                            </div>
+                                            <div class="field">
+                                                <label>Mobile Number</label>
+                                                <input type="text" class="uppercase notempty" name="mobileno" value="  ">
+                                            </div>
+                                        </div>
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Age</label>
+                                                <input type="text" name="age" value=" 23 " placeholder="00" class="notempty">
+                                            </div>
+                                            <div class="field">
+                                                <label>Date of Birth</label>
+                                                <input type="text" name="birthday" value=" 11/24/1987 " class="airdatepicker notempty" placeholder="Date">
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label>Place of Birth</label>
+                                            <input type="text" class="uppercase notempty" name="birthplace" value="  " placeholder="City, Province, Country">
+                                        </div>
+                                        <div class="field">
+                                            <label>Home Address</label>
+                                            <input type="text" class="uppercase notempty" name="homeaddress" value="  " placeholder="House/Unit Number, Building, Street, City, Province, Country">
+                                        </div>
+                                        <div class="field">
+                                            <label>Upload Profile photo</label>
+                                            <input class="ui file upload" value="" id="imagefile" name="image" type="file" accept="image/png, image/jpeg, image/jpg"
+                                                onchange="validateFile()">
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 float-left">
+                                <div class="box box-success">
+                                    <div class="box-header with-border">Employee Details</div>
+                                    <div class="box-body">
+                                        <h4 class="ui dividing header">Designation</h4>
+                                        <div class="field">
+                                            <label>Company</label>
+                                            <div class="ui search dropdown uppercase selection notempty">
+                                                <select name="company">
+                                                    <option value="">Select Company</option>
+                                                    <option value="APPLE CORP"> APPLE CORP</option>
+                                                    <option value="APPLE HOLDINGS CORP" selected=""> APPLE HOLDINGS CORP</option>
+                                                    <option value="APPLE GLOBAL INC"> APPLE GLOBAL INC</option>
+                                                </select>
+                                                <i class="dropdown icon"></i>
+                                                <input class="search" autocomplete="off" tabindex="0">
+                                                <div class="text">APPLE HOLDINGS CORP</div>
+                                                <div class="menu" tabindex="-1">
+                                                    <div class="item" data-value="APPLE CORP"> APPLE CORP</div>
+                                                    <div class="item active selected" data-value="APPLE HOLDINGS CORP"> APPLE HOLDINGS CORP</div>
+                                                    <div class="item" data-value="APPLE GLOBAL INC"> APPLE GLOBAL INC</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label>Department</label>
+                                            <div class="ui search dropdown uppercase department selection notempty">
+                                                <select name="department">
+                                                    <option value="">Select Department</option>
+                                                    <option value="ADMIN OFFICES" selected=""> ADMIN OFFICES</option>
+                                                    <option value="EXECUTIVE OFFICE"> EXECUTIVE OFFICE</option>
+                                                    <option value="IT/IS"> IT/IS</option>
+                                                    <option value="PRODUCTION"> PRODUCTION</option>
+                                                    <option value="SALES"> SALES</option>
+                                                    <option value="SOFTWARE ENGINEERING"> SOFTWARE ENGINEERING</option>
+                                                    <option value="HR"> HR</option>
+                                                </select>
+                                                <i class="dropdown icon"></i>
+                                                <input class="search" autocomplete="off" tabindex="0">
+                                                <div class="text">ADMIN OFFICES</div>
+                                                <div class="menu" tabindex="-1">
+                                                    <div class="item active selected" data-value="ADMIN OFFICES"> ADMIN OFFICES</div>
+                                                    <div class="item" data-value="EXECUTIVE OFFICE"> EXECUTIVE OFFICE</div>
+                                                    <div class="item" data-value="IT/IS"> IT/IS</div>
+                                                    <div class="item" data-value="PRODUCTION"> PRODUCTION</div>
+                                                    <div class="item" data-value="SALES"> SALES</div>
+                                                    <div class="item" data-value="SOFTWARE ENGINEERING"> SOFTWARE ENGINEERING</div>
+                                                    <div class="item" data-value="HR"> HR</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label>Job Title / Position</label>
+                                            <div class="ui search dropdown selection uppercase jobposition notempty">
+                                                <input type="hidden" name="jobposition" value="ACCOUNTANT I" class="notempty">
+                                                <i class="dropdown icon"></i>
+                                                <input class="search" autocomplete="off" tabindex="0">
+                                                <div class="text">ACCOUNTANT I</div>
+                                                <div class="menu" tabindex="-1">
+                                                    <div class="item active selected" data-value="ACCOUNTANT I" data-dept="ADMIN OFFICES" selected="">ACCOUNTANT I</div>
+                                                    <div class="item" data-value="ADMINISTRATIVE ASSISTANT" data-dept="ADMIN OFFICES">ADMINISTRATIVE ASSISTANT</div>
+                                                    <div class="item" data-value="SHARED SERVICES MANAGER" data-dept="ADMIN OFFICES">SHARED SERVICES MANAGER</div>
+                                                    <div class="item" data-value="SR ACCOUNTANT" data-dept="ADMIN OFFICES">SR ACCOUNTANT</div>
+                                                    <div class="item" data-value="PRESIDENT &amp; CEO" data-dept="EXECUTIVE OFFICE">PRESIDENT &amp; CEO</div>
+                                                    <div class="item" data-value="CIO" data-dept="IT/IS">CIO</div>
+                                                    <div class="item" data-value="DATABASE ADMINISTRATOR" data-dept="IT/IS">DATABASE ADMINISTRATOR</div>
+                                                    <div class="item" data-value="IT DIRECTOR" data-dept="IT/IS">IT DIRECTOR</div>
+                                                    <div class="item" data-value="IT MANAGER - DB" data-dept="IT/IS">IT MANAGER - DB</div>
+                                                    <div class="item" data-value="IT MANAGER - INFRA" data-dept="IT/IS">IT MANAGER - INFRA</div>
+                                                    <div class="item" data-value="IT MANAGER - SUPPORT" data-dept="IT/IS">IT MANAGER - SUPPORT</div>
+                                                    <div class="item" data-value="IT SUPPORT" data-dept="IT/IS">IT SUPPORT</div>
+                                                    <div class="item" data-value="NETWORK ENGINEER" data-dept="IT/IS">NETWORK ENGINEER</div>
+                                                    <div class="item" data-value="SR DBA" data-dept="IT/IS">SR DBA</div>
+                                                    <div class="item" data-value="SR NETWORK ENGINEER" data-dept="IT/IS">SR NETWORK ENGINEER</div>
+                                                    <div class="item" data-value="DIRECTOR OF OPERATIONS" data-dept="PRODUCTION">DIRECTOR OF OPERATIONS</div>
+                                                    <div class="item" data-value="PRODUCTION MANAGER" data-dept="PRODUCTION">PRODUCTION MANAGER</div>
+                                                    <div class="item" data-value="PRODUCTION MANAGER" data-dept="PRODUCTION">PRODUCTION MANAGER</div>
+                                                    <div class="item" data-value="PRODUCTION TECHNICIAN I" data-dept="PRODUCTION">PRODUCTION TECHNICIAN I</div>
+                                                    <div class="item" data-value="PRODUCTION TECHNICIAN II" data-dept="PRODUCTION">PRODUCTION TECHNICIAN II</div>
+                                                    <div class="item" data-value="AREA SALES MANAGER" data-dept="SALES">AREA SALES MANAGER</div>
+                                                    <div class="item" data-value="DIRECTOR OF SALES" data-dept="SALES">DIRECTOR OF SALES</div>
+                                                    <div class="item" data-value="SALES MANAGER" data-dept="SALES">SALES MANAGER</div>
+                                                    <div class="item" data-value="SOFTWARE ENGINEER" data-dept="SOFTWARE ENGINEERING">SOFTWARE ENGINEER</div>
+                                                    <div class="item" data-value="SOFTWARE ENGINEERING MANAGER" data-dept="SOFTWARE ENGINEERING">SOFTWARE ENGINEERING MANAGER</div>
+                                                    <div class="item" data-value="BI DIRECTOR" data-dept="IT/IS">BI DIRECTOR</div>
+                                                    <div class="item" data-value="SENIOR BI DEVELOPER" data-dept="IT/IS">SENIOR BI DEVELOPER</div>
+                                                    <div class="item" data-value="BI DEVELOPER" data-dept="IT/IS">BI DEVELOPER</div>
+                                                    <div class="item" data-value="DATA ARCHITECH" data-dept="IT/IS">DATA ARCHITECH</div>
+                                                    <div class="item" data-value="HR MANAGER" data-dept="HR">HR MANAGER</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label>ID Number</label>
+                                            <input type="text" class="uppercase notempty" name="idno" value=" 110302 ">
+                                        </div>
+                                        <div class="field">
+                                            <label>Email Address (Company)</label>
+                                            <input type="email" name="companyemail" value=" brownmia@apple.com " class="lowercase notempty">
+                                        </div>
+                                        <h4 class="ui dividing header">Employment Information</h4>
+                                        <div class="field">
+                                            <label>Employment Type</label>
+                                            <div class="ui dropdown uppercase selection notempty" tabindex="0">
+                                                <select name="employmenttype">
+                                                    <option value="">Select Type</option>
+                                                    <option value="Regular" selected="">Regular</option>
+                                                    <option value="Trainee">Trainee</option>
+                                                </select>
+                                                <i class="dropdown icon"></i>
+                                                <div class="text">Regular</div>
+                                                <div class="menu" tabindex="-1">
+                                                    <div class="item active selected" data-value="Regular">Regular</div>
+                                                    <div class="item" data-value="Trainee">Trainee</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label>Employment Status</label>
+                                            <div class="ui dropdown uppercase selection notempty" tabindex="0">
+                                                <select name="employmentstatus">
+                                                    <option value="">Select Status</option>
+                                                    <option value="Active" selected="">Active</option>
+                                                    <option value="Archived">Archived</option>
+                                                </select>
+                                                <i class="dropdown icon"></i>
+                                                <div class="text">Active</div>
+                                                <div class="menu" tabindex="-1">
+                                                    <div class="item active selected" data-value="Active">Active</div>
+                                                    <div class="item" data-value="Archived">Archived</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label>Official Start Date</label>
+                                            <input type="text" name="startdate" value=" 10/27/2008 " class="airdatepicker notempty" placeholder="Date">
+                                        </div>
+                                        <div class="field">
+                                            <label>Date Regularized</label>
+                                            <input type="text" name="dateregularized" value=" 01/02/2018 " class="airdatepicker notempty" placeholder="Date">
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 float-left">
+                                <div class="action align-right">
+                                    <button type="submit" name="submit" class="ui green button small">
+                                        <i class="ui checkmark icon"></i> Update</button>
+                                    <a href="../../employees.html" class="ui grey button small">
+                                        <i class="ui times icon"></i> Cancel</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../../assets/vendor/bootstrap/js/bootstrap.min.v4.1.3.js"></script>
+    <script src="../../assets/vendor/semantic-ui/semantic.min.js"></script>
+    <script src="../../assets/js/bootstrap-notify.js"></script>
+    <script src="../../assets/js/script.js"></script>
+
+    <!-- @yield('scripts') -->
+
+</body>
+
+</html>
